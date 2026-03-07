@@ -1,0 +1,148 @@
+import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Play, ChevronDown } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import { AnimatedCounter } from '@/components/animations/AnimatedCounter';
+import { STATS } from '@/helpers/constants';
+
+export default function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  const words = ['TRANSFORM', 'ELEVATE', 'PROTECT', 'DOMINATE'];
+  const [currentWord, setCurrentWord] = [words[0], () => {}];
+  void setCurrentWord;
+
+  return (
+    <section ref={containerRef} className="relative min-h-screen flex flex-col overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 animated-gradient-bg" />
+
+      {/* Grid overlay */}
+      <div
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(0,245,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,255,0.15) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }}
+      />
+
+      {/* Radial glow */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-purple-600/10 rounded-full blur-3xl" />
+      </div>
+
+      {/* Content */}
+      <motion.div style={{ y, opacity }} className="relative z-10 flex-1 flex flex-col justify-center pt-24 pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-5xl">
+            {/* Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <span className="w-10 h-px bg-cyan-400" />
+              <span className="text-xs font-bold tracking-[0.3em] uppercase text-cyan-400">
+                Martin Wrap Studio
+              </span>
+            </motion.div>
+
+            {/* Main headline */}
+            <div className="mb-6 overflow-hidden">
+              <motion.h1
+                initial={{ y: '100%', opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight"
+                style={{ fontFamily: 'Barlow Condensed, sans-serif' }}
+              >
+                <span className="text-white">{currentWord}</span>
+                <br />
+                <span className="gradient-text">YOUR RIDE.</span>
+              </motion.h1>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-lg sm:text-xl text-slate-400 max-w-xl mb-10 leading-relaxed"
+            >
+              Premium vinyl wrapping, paint protection film & commercial branding.
+              Every vehicle treated as a masterpiece.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.75 }}
+              className="flex flex-wrap items-center gap-4"
+            >
+              <Link to="/contact">
+                <Button size="lg" variant="primary" className="group">
+                  Book a Consultation
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link to="/gallery">
+                <Button size="lg" variant="secondary" className="group">
+                  <Play className="w-4 h-4" />
+                  View Gallery
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Stats bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 1 }}
+        className="relative z-10 border-t border-white/5"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-white/10">
+            {STATS.map((stat) => (
+              <div key={stat.label} className="text-center lg:px-8">
+                <div
+                  className="text-3xl sm:text-4xl font-black text-white mb-1 neon-text"
+                  style={{ fontFamily: 'Barlow Condensed, sans-serif' }}
+                >
+                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                </div>
+                <div className="text-sm text-slate-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Scroll cue */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <ChevronDown className="w-5 h-5 text-slate-500" />
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}

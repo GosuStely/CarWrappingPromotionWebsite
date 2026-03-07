@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+/* ── Tailwind v4 class-based dark mode ─────────────────────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Design tokens (CSS custom properties) ─────────────────────────────────── */
+/* Light mode defaults — clean, bright, professional automotive */
+:root {
+  --bg-base:       #f0f4f8;
+  --bg-subtle:     #e4eaf2;
+  --bg-muted:      #d8e0eb;
+  --bg-card:       #ffffff;
+  --bg-card-2:     #f5f7fa;
+  --bg-elevated:   #ffffff;
+
+  --text-primary:  #0b1120;
+  --text-secondary:#334155;
+  --text-muted:    #64748b;
+  --text-accent:   #0891b2; /* cyan-600 — darker for light bg readability */
+
+  --border-base:   rgba(15, 23, 42, 0.10);
+  --border-accent: rgba(8, 145, 178, 0.25);
+
+  --glass-bg:      rgba(255, 255, 255, 0.88);
+  --navbar-bg:     rgba(240, 244, 248, 0.94);
+  --navbar-border: rgba(8, 145, 178, 0.18);
+
+  --scrollbar-track:  #e4eaf2;
+  --scrollbar-thumb:  rgba(8, 145, 178, 0.35);
+  --selection-bg:     rgba(8, 145, 178, 0.18);
+  --selection-text:   #0891b2;
+}
+
+/* Dark mode — deep navy, premium automotive feel */
+html.dark {
+  --bg-base:       #07070f;
+  --bg-subtle:     #0a0a18;
+  --bg-muted:      #0d0d1a;
+  --bg-card:       #0d0d1a;
+  --bg-card-2:     #12122a;
+  --bg-elevated:   #1a1a2e;
+
+  --text-primary:  #f0f4f8;
+  --text-secondary:#cbd5e1;
+  --text-muted:    #64748b;
+  --text-accent:   #22d3ee; /* cyan-400 for dark bg */
+
+  --border-base:   rgba(255, 255, 255, 0.07);
+  --border-accent: rgba(0, 245, 255, 0.20);
+
+  --glass-bg:      rgba(13, 13, 26, 0.88);
+  --navbar-bg:     rgba(7, 7, 15, 0.92);
+  --navbar-border: rgba(0, 245, 255, 0.10);
+
+  --scrollbar-track:  #0d0d1a;
+  --scrollbar-thumb:  rgba(0, 245, 255, 0.28);
+  --selection-bg:     rgba(0, 245, 255, 0.15);
+  --selection-text:   #00f5ff;
+}
+
+/* ── Tailwind theme extensions ─────────────────────────────────────────────── */
+@theme {
+  --color-neon:        #00f5ff;
+  --color-neon-green:  #39ff14;
+  --color-neon-purple: #bf00ff;
+  --color-accent:      #ff6b00;
+  --color-dark-900:    #07070f;
+  --color-dark-800:    #0d0d1a;
+  --color-dark-700:    #12122a;
+  --color-dark-600:    #1a1a35;
+  --color-surface:     #1e1e3a;
+
+  --font-display: "Barlow Condensed", "Inter", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+
+  --animate-gradient: gradient 6s ease infinite;
+  --animate-glow:     glow 2s ease-in-out infinite alternate;
+  --animate-shimmer:  shimmer 2s linear infinite;
+}
+
+/* ── Keyframes ─────────────────────────────────────────────────────────────── */
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff; }
+  to   { text-shadow: 0 0 20px #00f5ff, 0 0 40px #00f5ff, 0 0 60px #00f5ff; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-20px); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2);   opacity: 0; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Base styles ───────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar         { width: 6px; }
+::-webkit-scrollbar-track   { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb   { background: var(--scrollbar-thumb); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb); filter: brightness(1.4); }
+
+/* ── Selection ─────────────────────────────────────────────────────────────── */
+::selection { background: var(--selection-bg); color: var(--selection-text); }
+
+/* ── Utility classes ───────────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #00f5ff 0%, #bf00ff 50%, #ff6b00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Light mode: softer gradient that reads on white bg */
+html:not(.dark) .gradient-text {
+  background: linear-gradient(135deg, #0891b2 0%, #7c3aed 50%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.neon-text {
+  color: var(--text-accent);
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.5), 0 0 20px rgba(0, 245, 255, 0.25);
+}
+
+html:not(.dark) .neon-text {
+  text-shadow: none;
+}
+
+.neon-border {
+  border: 1px solid var(--border-accent);
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.12), inset 0 0 15px rgba(0, 245, 255, 0.06);
+}
+
+html:not(.dark) .neon-border {
+  box-shadow: 0 0 0 1px var(--border-accent);
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-base);
+}
+
+.animated-gradient-bg {
+  background: linear-gradient(270deg, #07070f, #0d0d1a, #1a0a2e, #0a1628, #07070f);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+}
+
+html:not(.dark) .animated-gradient-bg {
+  background: linear-gradient(270deg, #dde6f0, #e8edf5, #ede0f5, #dde8f5, #dde6f0);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+}
+
+/* Section background helpers — map to CSS vars */
+.bg-base   { background-color: var(--bg-base); }
+.bg-subtle { background-color: var(--bg-subtle); }
+.bg-muted  { background-color: var(--bg-muted); }
+.bg-card   { background-color: var(--bg-card); }
+
+/* ── Spinner ───────────────────────────────────────────────────────────────── */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 245, 255, 0.15);
+  border-top-color: var(--text-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ── Before/After slider ───────────────────────────────────────────────────── */
+.before-after-slider {
+  position: relative;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+}
+
+/* ── Image hover zoom ──────────────────────────────────────────────────────── */
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.img-zoom:hover img { transform: scale(1.08); }
+
+/* ── Noise texture overlay ─────────────────────────────────────────────────── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
