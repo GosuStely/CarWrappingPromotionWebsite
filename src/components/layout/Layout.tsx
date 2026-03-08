@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import StickyBooking from '@/components/shared/StickyBooking';
+import WhatsAppButton from '@/components/shared/WhatsAppButton';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -41,6 +42,7 @@ export default function Layout({ children }: LayoutProps) {
       </motion.main>
       <Footer />
       <StickyBooking />
+      <WhatsAppButton />
     </div>
   );
 }

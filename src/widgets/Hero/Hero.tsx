@@ -95,6 +95,17 @@ export default function Hero() {
                 </Button>
               </Link>
             </motion.div>
+
+            {/* Availability indicator */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1 }}
+              className="text-xs text-slate-500 flex items-center gap-1.5 mt-2"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse inline-block" />
+              Booking 2–3 weeks out · Limited slots available this month
+            </motion.p>
           </div>
         </div>
       </motion.div>

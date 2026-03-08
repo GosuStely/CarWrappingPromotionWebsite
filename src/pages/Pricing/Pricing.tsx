@@ -6,6 +6,7 @@ import { SectionHeader } from '@/components/shared/SectionHeader';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { Button } from '@/components/ui/Button';
 import PricingTable from '@/widgets/PricingTable/PricingTable';
+import QuoteCalculator from '@/widgets/QuoteCalculator/QuoteCalculator';
 import { staggerContainer, staggerItem, VIEWPORT_CONFIG } from '@/helpers/animations';
 
 const ADDON_PRICES = [299, 599, 399, 249, 149, 350, 199, 299] as const;
@@ -56,8 +57,17 @@ export default function Pricing() {
         </div>
       </section>
 
+      {/* Quote Calculator */}
+      <section className="py-16 bg-[#0a0a18]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <QuoteCalculator />
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Add-ons */}
-      <section className="py-24 bg-[#0a0a18]">
+      <section className="py-24 bg-[#080810]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow={t('pricingPage.addons.eyebrow')}

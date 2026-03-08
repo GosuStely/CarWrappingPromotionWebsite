@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { SERVICES } from '@/helpers/constants';
 import { staggerContainer, staggerItem, VIEWPORT_CONFIG } from '@/helpers/animations';
 import { formatPrice } from '@/helpers/format';
+import TrustBar from '@/components/shared/TrustBar';
 
 const iconMap: Record<string, React.ElementType> = {
   car: Car, palette: Palette, layers: Layers, truck: Truck, shield: Shield,
@@ -51,6 +52,8 @@ export default function Services() {
           </ScrollReveal>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* Services detail */}
       <section className="py-12 bg-[#080810]">

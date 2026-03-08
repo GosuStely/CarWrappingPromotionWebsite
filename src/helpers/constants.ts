@@ -298,6 +298,17 @@ export const PRICING_TIERS: PricingTier[] = [
   },
 ];
 
+export const WHATSAPP_NUMBER = '+359888000000'; // ← replace with real number
+
+/** Price ranges [min, max] per service × vehicle size */
+export const QUOTE_PRICE_MATRIX: Record<string, Record<string, [number, number]>> = {
+  'full-wrap':    { hatchback: [1900, 2400], sedan: [2200, 2800], suv: [2800, 3400], truck: [3000, 3800], exotic: [4500, 7000] },
+  'color-change': { hatchback: [1600, 2000], sedan: [2000, 2500], suv: [2500, 3100], truck: [2800, 3500], exotic: [4000, 6000] },
+  'partial':      { hatchback: [350,  500],  sedan: [400,  650],  suv: [500,  800],  truck: [600,  950],  exotic: [800,  1400] },
+  'commercial':   { hatchback: [700,  1000], sedan: [800,  1200], suv: [1000, 1500], truck: [1400, 2200], exotic: [1800, 3000] },
+  'ppf':          { hatchback: [1000, 1400], sedan: [1300, 1800], suv: [1700, 2300], truck: [2000, 2800], exotic: [3000, 5000] },
+};
+
 export const TEAM_MEMBERS = [
   {
     id: '1',
