@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function StickyBooking() {
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 500);
@@ -27,7 +29,7 @@ export default function StickyBooking() {
             className="flex items-center gap-2 px-5 py-3 rounded-full bg-cyan-400 text-black font-semibold text-sm shadow-[0_0_30px_rgba(0,245,255,0.5)] hover:bg-cyan-300 hover:shadow-[0_0_40px_rgba(0,245,255,0.7)] transition-all duration-200 group"
           >
             <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
-            Book a Wrap
+            {t('common.bookAWrap')}
           </Link>
         </motion.div>
       )}

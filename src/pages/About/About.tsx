@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Award, Zap, Heart, Users } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { RevealImage } from '@/components/animations/RevealImage';
@@ -9,14 +10,14 @@ import { AnimatedCounter } from '@/components/animations/AnimatedCounter';
 import { STATS, TEAM_MEMBERS } from '@/helpers/constants';
 import { staggerContainer, staggerItem, VIEWPORT_CONFIG } from '@/helpers/animations';
 
-const VALUES = [
-  { icon: Award, title: 'Uncompromising Quality', desc: 'We use only certified premium materials and refuse to cut corners — ever.' },
-  { icon: Zap, title: 'Precision Craftsmanship', desc: 'Every millimeter matters. Our installers are obsessed with perfect edges and seamless finishes.' },
-  { icon: Heart, title: 'Client-First Mindset', desc: 'Your vision drives everything we do. We listen, advise, and deliver beyond expectations.' },
-  { icon: Users, title: 'Expert Team', desc: 'Certified by 3M, Avery Dennison, and XPEL — our team trains constantly to stay at the cutting edge.' },
-];
+const VALUES_ICONS = [Award, Zap, Heart, Users] as const;
+type ValueItem = { title: string; desc: string };
 
 export default function About() {
+  const { t } = useTranslation();
+  const values = t('aboutPage.values', { returnObjects: true }) as ValueItem[];
+  const certs = t('aboutPage.certs', { returnObjects: true }) as string[];
+
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -27,14 +28,14 @@ export default function About() {
           <ScrollReveal>
             <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-cyan-400 mb-4">
               <span className="w-6 h-px bg-cyan-400" />
-              Our Story
+              {t('aboutPage.eyebrow')}
               <span className="w-6 h-px bg-cyan-400" />
             </span>
             <h1 className="text-6xl sm:text-7xl font-black text-white mb-6" style={{ fontFamily: 'Barlow Condensed, sans-serif' }}>
-              BUILT BY <span className="gradient-text">ENTHUSIASTS</span>
+              {t('aboutPage.title')}
             </h1>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-              Martin Wrap Studio was born out of a passion for cars and a desire to elevate the standard of vehicle wrapping to a true art form.
+              {t('aboutPage.subtitle')}
             </p>
           </ScrollReveal>
         </div>
@@ -54,30 +55,22 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
               <div className="absolute bottom-6 left-6 right-6 neon-border rounded-xl p-4 glass">
                 <p className="text-sm text-slate-300 italic">
-                  "We started Martin Wrap Studio because we were tired of seeing great cars ruined by mediocre wraps."
+                  "{t('aboutPage.quote')}"
                 </p>
-                <p className="text-cyan-400 text-xs font-semibold mt-2">— Martin, Founder</p>
+                <p className="text-cyan-400 text-xs font-semibold mt-2">{t('aboutPage.quoteAuthor')}</p>
               </div>
             </div>
 
             <div>
               <ScrollReveal>
                 <h2 className="text-4xl font-black text-white mb-6 leading-tight" style={{ fontFamily: 'Barlow Condensed, sans-serif' }}>
-                  FROM A GARAGE TO A PREMIUM STUDIO
+                  {t('aboutPage.storyTitle')}
                 </h2>
                 <div className="space-y-4 text-slate-400 leading-relaxed">
-                  <p>
-                    In 2016, Martin started Martin Wrap Studio in a small 2-bay garage with a single installer and a vision: to bring European-quality car wrapping to the local automotive scene.
-                  </p>
-                  <p>
-                    After training with some of the world's most respected wrap studios, Martin returned with a level of expertise rarely seen outside top-tier performance shops. The results spoke for themselves — word spread fast.
-                  </p>
-                  <p>
-                    Today, Martin Wrap Studio operates from a purpose-built 10,000 sq ft temperature-controlled studio. Our team of certified specialists has transformed over 1,200 vehicles — from weekend track cars to supercar collections and entire commercial fleets.
-                  </p>
-                  <p>
-                    We're not just a wrap shop. We're the team behind some of the most jaw-dropping vehicles you'll see on the street.
-                  </p>
+                  <p>{t('aboutPage.storyP1')}</p>
+                  <p>{t('aboutPage.storyP2')}</p>
+                  <p>{t('aboutPage.storyP3')}</p>
+                  <p>{t('aboutPage.storyP4')}</p>
                 </div>
               </ScrollReveal>
             </div>
@@ -96,11 +89,11 @@ export default function About() {
             className="grid grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {STATS.map((stat) => (
-              <motion.div key={stat.label} variants={staggerItem} className="text-center">
+              <motion.div key={stat.key} variants={staggerItem} className="text-center">
                 <div className="text-5xl font-black text-white neon-text mb-2" style={{ fontFamily: 'Barlow Condensed, sans-serif' }}>
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-sm text-slate-400">{stat.label}</div>
+                <div className="text-sm text-slate-400">{t('stats.' + stat.key)}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -110,7 +103,7 @@ export default function About() {
       {/* Values */}
       <section className="py-24 bg-[#080810]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader eyebrow="What We Stand For" title="Our Core Values" className="mb-12" />
+          <SectionHeader eyebrow={t('aboutPage.valuesEyebrow')} title={t('aboutPage.valuesTitle')} className="mb-12" />
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -118,19 +111,22 @@ export default function About() {
             viewport={VIEWPORT_CONFIG}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            {VALUES.map(({ icon: Icon, title, desc }) => (
-              <motion.div
-                key={title}
-                variants={staggerItem}
-                className="p-6 rounded-2xl bg-[#0d0d1a] border border-white/5 hover:border-cyan-400/20 transition-colors duration-300 group"
-              >
-                <div className="w-10 h-10 rounded-xl bg-cyan-400/10 flex items-center justify-center mb-4 group-hover:bg-cyan-400/20 transition-colors">
-                  <Icon className="w-5 h-5 text-cyan-400" />
-                </div>
-                <h3 className="font-bold text-white mb-2">{title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
-              </motion.div>
-            ))}
+            {values.map(({ title, desc }, idx) => {
+              const Icon = VALUES_ICONS[idx];
+              return (
+                <motion.div
+                  key={title}
+                  variants={staggerItem}
+                  className="p-6 rounded-2xl bg-[#0d0d1a] border border-white/5 hover:border-cyan-400/20 transition-colors duration-300 group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-cyan-400/10 flex items-center justify-center mb-4 group-hover:bg-cyan-400/20 transition-colors">
+                    <Icon className="w-5 h-5 text-cyan-400" />
+                  </div>
+                  <h3 className="font-bold text-white mb-2">{title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -138,10 +134,9 @@ export default function About() {
       {/* Founder */}
       <section className="py-24 bg-[#0a0a18]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader eyebrow="The Man Behind the Work" title="Meet Martin" className="mb-12" />
+          <SectionHeader eyebrow={t('aboutPage.founderEyebrow')} title={t('aboutPage.founderTitle')} className="mb-12" />
           <ScrollReveal>
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-10">
-              {/* Photo */}
               <div className="relative w-56 h-56 shrink-0 rounded-2xl overflow-hidden group">
                 <RevealImage
                   src={TEAM_MEMBERS[0].image}
@@ -153,23 +148,15 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
                 <div className="absolute inset-0 border-2 border-cyan-400/0 group-hover:border-cyan-400/40 rounded-2xl transition-all duration-300 pointer-events-none" />
               </div>
-
-              {/* Info */}
               <div>
-                <h3
-                  className="text-3xl font-black text-white mb-1"
-                  style={{ fontFamily: 'Barlow Condensed, sans-serif' }}
-                >
+                <h3 className="text-3xl font-black text-white mb-1" style={{ fontFamily: 'Barlow Condensed, sans-serif' }}>
                   {TEAM_MEMBERS[0].name}
                 </h3>
-                <p className="text-cyan-400 font-semibold mb-4">{TEAM_MEMBERS[0].role}</p>
-                <p className="text-slate-400 leading-relaxed mb-6">{TEAM_MEMBERS[0].bio}</p>
+                <p className="text-cyan-400 font-semibold mb-4">{t('aboutPage.teamRole')}</p>
+                <p className="text-slate-400 leading-relaxed mb-6">{t('aboutPage.teamBio')}</p>
                 <div className="flex flex-wrap gap-2">
-                  {['3M Certified', 'Avery Dennison', 'XPEL Certified', '8+ Years Experience'].map((cert) => (
-                    <span
-                      key={cert}
-                      className="text-xs font-semibold px-3 py-1.5 rounded-full border border-cyan-400/30 text-cyan-400 bg-cyan-400/5"
-                    >
+                  {certs.map((cert) => (
+                    <span key={cert} className="text-xs font-semibold px-3 py-1.5 rounded-full border border-cyan-400/30 text-cyan-400 bg-cyan-400/5">
                       {cert}
                     </span>
                   ))}
@@ -183,7 +170,7 @@ export default function About() {
       {/* Workshop images */}
       <section className="py-24 bg-[#080810]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader eyebrow="Our Studio" title="Where the Magic Happens" className="mb-12" />
+          <SectionHeader eyebrow={t('aboutPage.studioEyebrow')} title={t('aboutPage.studioTitle')} className="mb-12" />
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
@@ -196,7 +183,7 @@ export default function About() {
               <div key={i} className="group relative rounded-xl overflow-hidden aspect-square">
                 <RevealImage
                   src={src}
-                  alt={`Workshop ${i + 1}`}
+                  alt={'Workshop ' + (i + 1)}
                   direction="scale"
                   delay={i * 0.1}
                   containerClassName="w-full h-full"
@@ -213,12 +200,12 @@ export default function About() {
       <section className="py-20 bg-[#0a0a18] text-center">
         <ScrollReveal>
           <h2 className="text-4xl font-black text-white mb-4" style={{ fontFamily: 'Barlow Condensed, sans-serif' }}>
-            READY TO WORK WITH US?
+            {t('aboutPage.ctaTitle')}
           </h2>
-          <p className="text-slate-400 mb-8 max-w-lg mx-auto">Get in touch and let's talk about transforming your vehicle.</p>
+          <p className="text-slate-400 mb-8 max-w-lg mx-auto">{t('aboutPage.ctaSubtitle')}</p>
           <Link to="/contact">
             <Button size="lg" variant="primary" className="group">
-              Start Your Project
+              {t('aboutPage.ctaCta')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>

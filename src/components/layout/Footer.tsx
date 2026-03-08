@@ -1,18 +1,22 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Zap, MapPin, Phone, Mail, Instagram, Facebook, Youtube } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { NAV_LINKS } from '@/helpers/constants';
 import { staggerContainer, staggerItem, VIEWPORT_CONFIG } from '@/helpers/animations';
 
+const NAV_KEYS = ['home', 'services', 'gallery', 'pricing', 'about', 'contact'] as const;
+
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { t } = useTranslation();
+  const serviceLinks = t('footer.serviceLinks', { returnObjects: true }) as string[];
 
   return (
     <footer
       className="relative overflow-hidden border-t"
       style={{ backgroundColor: 'var(--bg-subtle)', borderColor: 'var(--border-accent)' }}
     >
-      {/* Ambient glow — only visible in dark mode */}
       <div className="dark:block hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <motion.div
@@ -38,7 +42,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--text-muted)' }}>
-              Martin Wrap Studio — premium automotive wrapping. We transform vehicles with precision, passion, and uncompromising quality.
+              {t('footer.tagline')}
             </p>
             <div className="flex gap-3">
               {[
@@ -65,17 +69,17 @@ export default function Footer() {
               className="font-semibold tracking-wide mb-4 text-sm uppercase"
               style={{ color: 'var(--text-primary)' }}
             >
-              Navigation
+              {t('footer.navigation')}
             </h3>
             <ul className="space-y-2">
-              {NAV_LINKS.map((link) => (
+              {NAV_LINKS.map((link, i) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
                     className="text-sm transition-colors duration-200 hover:text-cyan-500"
                     style={{ color: 'var(--text-muted)' }}
                   >
-                    {link.label}
+                    {t(`nav.${NAV_KEYS[i]}`)}
                   </Link>
                 </li>
               ))}
@@ -88,10 +92,10 @@ export default function Footer() {
               className="font-semibold tracking-wide mb-4 text-sm uppercase"
               style={{ color: 'var(--text-primary)' }}
             >
-              Services
+              {t('footer.services')}
             </h3>
             <ul className="space-y-2">
-              {['Full Car Wraps', 'Color Change', 'Partial Wraps', 'Commercial Branding', 'Paint Protection Film'].map((s) => (
+              {serviceLinks.map((s) => (
                 <li key={s}>
                   <Link
                     to="/services"
@@ -111,7 +115,7 @@ export default function Footer() {
               className="font-semibold tracking-wide mb-4 text-sm uppercase"
               style={{ color: 'var(--text-primary)' }}
             >
-              Contact
+              {t('footer.contact')}
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
@@ -144,23 +148,26 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        {/* Bottom bar */}
         <div
           className="mt-12 pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4"
           style={{ borderColor: 'var(--border-base)' }}
         >
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-            &copy; {year} Martin Wrap Studio. All rights reserved.
+            {t('footer.copyright', { year })}
           </p>
           <div className="flex gap-6">
-            {['Privacy Policy', 'Terms of Service', 'Sitemap'].map((item) => (
+            {([
+              { key: 'footer.privacy' },
+              { key: 'footer.terms' },
+              { key: 'footer.sitemap' },
+            ] as const).map(({ key }) => (
               <a
-                key={item}
+                key={key}
                 href="#"
                 className="text-xs transition-colors duration-200 hover:text-cyan-500"
                 style={{ color: 'var(--text-muted)' }}
               >
-                {item}
+                {t(key)}
               </a>
             ))}
           </div>

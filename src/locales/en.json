@@ -1,0 +1,336 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "gallery": "Gallery",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact",
+    "bookNow": "Book Now"
+  },
+  "footer": {
+    "tagline": "Martin Wrap Studio — premium automotive wrapping. We transform vehicles with precision, passion, and uncompromising quality.",
+    "navigation": "Navigation",
+    "services": "Services",
+    "contact": "Contact",
+    "serviceLinks": ["Full Car Wraps", "Color Change", "Partial Wraps", "Commercial Branding", "Paint Protection Film"],
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "sitemap": "Sitemap",
+    "copyright": "© {{year}} Martin Wrap Studio. All rights reserved."
+  },
+  "common": {
+    "bookNow": "Book Now",
+    "viewGallery": "View Gallery",
+    "learnMore": "Learn more",
+    "startingFrom": "Starting from",
+    "mostPopular": "Most Popular",
+    "bookAWrap": "Book a Wrap",
+    "loading": "Loading..."
+  },
+  "hero": {
+    "eyebrow": "Martin Wrap Studio",
+    "words": ["TRANSFORM", "ELEVATE", "PROTECT", "DOMINATE"],
+    "yourRide": "YOUR RIDE.",
+    "subtitle": "Premium vinyl wrapping, paint protection film & commercial branding. Every vehicle treated as a masterpiece.",
+    "bookConsultation": "Book a Consultation",
+    "viewGallery": "View Gallery"
+  },
+  "stats": {
+    "carsWrapped": "Cars Wrapped",
+    "yearsExperience": "Years Experience",
+    "happyClients": "Happy Clients",
+    "wrapMaterials": "Wrap Materials"
+  },
+  "home": {
+    "showcase": {
+      "eyebrow": "Showcase",
+      "title": "WRAPS THAT TURN HEADS",
+      "cta": "View Gallery"
+    },
+    "whyUs": {
+      "eyebrow": "Why Martin Wrap Studio",
+      "title": "THE DIFFERENCE IS IN THE DETAILS",
+      "body": "We don't just wrap cars — we craft automotive identities. Every edge is tucked, every seam is hidden, every surface is perfect. It's not just a wrap. It's an obsession.",
+      "cta": "Our Story",
+      "items": [
+        {
+          "title": "Industry-Certified",
+          "desc": "3M, Avery Dennison & XPEL certified installers with 8+ years of hands-on experience."
+        },
+        {
+          "title": "Precision Installation",
+          "desc": "State-of-the-art tools and a temperature-controlled environment for flawless results every time."
+        },
+        {
+          "title": "Fast Turnaround",
+          "desc": "Most full wraps completed in 3–5 days. Same-week availability for partial wraps."
+        }
+      ]
+    },
+    "beforeAfter": {
+      "beforeLabel": "Factory Silver",
+      "afterLabel": "Matte Black Wrap",
+      "hint": "Drag the handle left/right to see the transformation"
+    },
+    "gallery": {
+      "eyebrow": "Our Work",
+      "title": "Recent Wraps",
+      "cta": "Full Gallery"
+    },
+    "cta": {
+      "title": "READY TO TRANSFORM YOUR RIDE?",
+      "body": "Book a free consultation today. Tell us your vision and we'll bring it to life — with precision, quality, and zero compromise.",
+      "quote": "Get a Free Quote",
+      "pricing": "View Pricing"
+    }
+  },
+  "serviceCards": {
+    "eyebrow": "What We Do",
+    "title": "Services Built for Perfectionists",
+    "subtitle": "From full vehicle transformations to invisible paint protection — every service is performed with precision and backed by years of expertise.",
+    "startingFrom": "Starting from",
+    "learnMore": "Learn more",
+    "mostPopular": "Most Popular"
+  },
+  "servicesPage": {
+    "eyebrow": "What We Offer",
+    "title": "OUR SERVICES",
+    "subtitle": "From invisible paint protection to total vehicle transformations — every service is performed with uncompromising precision.",
+    "startingFrom": "Starting from",
+    "bookService": "Book This Service",
+    "cta": {
+      "eyebrow": "Get Started",
+      "title": "Not Sure Which Service You Need?",
+      "subtitle": "Our team will assess your vehicle and goals then recommend the perfect solution. Free consultations available.",
+      "book": "Book a Free Consultation",
+      "pricing": "View Pricing"
+    }
+  },
+  "servicesData": {
+    "fullWrap": {
+      "shortLabel": "Full Wrap",
+      "title": "Full Car Wraps",
+      "description": "Complete vehicle transformation with precision-cut vinyl that hugs every contour of your car for a factory-fresh look.",
+      "features": ["Full exterior coverage", "Any color or finish", "5-year warranty", "Professional installation", "Surface prep included"]
+    },
+    "colorChange": {
+      "shortLabel": "Color Change",
+      "title": "Color Change Wraps",
+      "description": "Dramatically change your vehicle color without permanent paint. From matte black to chrome, your vision realized.",
+      "features": ["Satin, matte & gloss finishes", "Chrome & metallic options", "Fully reversible", "OEM color matching", "Custom blends available"]
+    },
+    "partialWrap": {
+      "shortLabel": "Partial Wrap",
+      "title": "Partial Wraps",
+      "description": "Accent panels, hood wraps, or roof wraps — add style and protection without wrapping the entire vehicle.",
+      "features": ["Hood, roof, mirrors", "Racing stripes", "Custom accent panels", "Budget-friendly", "Fast turnaround"]
+    },
+    "commercial": {
+      "shortLabel": "Commercial",
+      "title": "Commercial Branding",
+      "description": "Turn your fleet into moving billboards. High-impact commercial wraps designed for maximum brand visibility.",
+      "features": ["Custom design service", "Fleet discounts", "Contour-cut graphics", "UV-resistant inks", "Fast fleet turnaround"]
+    },
+    "ppf": {
+      "shortLabel": "PPF",
+      "title": "Paint Protection Film",
+      "description": "Invisible armor for your paintwork. PPF guards against stone chips, scratches, and UV damage.",
+      "features": ["Self-healing technology", "Crystal clear finish", "10-year warranty", "Anti-yellowing formula", "Hydrophobic coating"]
+    }
+  },
+  "galleryPage": {
+    "eyebrow": "Portfolio",
+    "title": "OUR GALLERY",
+    "subtitle": "Browse our portfolio of completed wraps — from subtle color changes to jaw-dropping custom designs.",
+    "color": "Color",
+    "beforeAfter": {
+      "eyebrow": "Transformations",
+      "title": "Before & After",
+      "subtitle": "Two photos — the same car, before and after the wrap. Drag the handle to reveal.",
+      "pairs": [
+        { "beforeLabel": "Factory Silver", "afterLabel": "Matte Black Wrap", "vehicle": "Porsche 911 — Factory Silver → Matte Black Wrap" },
+        { "beforeLabel": "Factory Red", "afterLabel": "Chrome Blue Wrap", "vehicle": "Ferrari — Factory Red → Chrome Blue Wrap" },
+        { "beforeLabel": "Factory White", "afterLabel": "Satin Dark Wrap", "vehicle": "BMW M — Factory White → Satin Dark Wrap" },
+        { "beforeLabel": "Factory Yellow", "afterLabel": "Color Shift Wrap", "vehicle": "Lamborghini — Factory Yellow → Color Shift Wrap" }
+      ]
+    },
+    "categories": {
+      "all": "All",
+      "fullWrap": "Full Wrap",
+      "colorChange": "Color Change",
+      "ppf": "PPF",
+      "commercial": "Commercial",
+      "partial": "Partial"
+    }
+  },
+  "pricingPage": {
+    "eyebrow": "Transparent Pricing",
+    "title": "INVESTMENT IN EXCELLENCE",
+    "subtitle": "Honest, transparent pricing with no hidden fees. Every package includes professional installation and our quality guarantee.",
+    "footnote": "* Prices are starting points and may vary by vehicle size, complexity, and materials.",
+    "customQuote": "Get a custom quote.",
+    "addons": {
+      "eyebrow": "Optional Add-ons",
+      "title": "Enhance Your Package",
+      "subtitle": "Customize your wrap experience with premium add-on services.",
+      "items": [
+        "Window Tinting",
+        "Ceramic Coating",
+        "Interior Trim Wrap",
+        "Chrome Delete",
+        "Headlight Tint",
+        "Roof Wrap",
+        "Mirror Caps",
+        "Custom Design"
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Common Questions",
+      "subtitle": "Everything you need to know before booking your wrap.",
+      "stillHave": "Still have questions?",
+      "askUs": "Ask Us Anything",
+      "items": [
+        {
+          "q": "How long does a full wrap take?",
+          "a": "A full car wrap typically takes 3–5 business days depending on vehicle size and complexity. Commercial vehicle wraps may take longer."
+        },
+        {
+          "q": "How long will my wrap last?",
+          "a": "With proper care, a quality vinyl wrap lasts 5–7 years. We use premium Avery Dennison and 3M materials with UV protection."
+        },
+        {
+          "q": "Can I wash my wrapped vehicle?",
+          "a": "Yes! Hand washing is recommended. Avoid automatic car washes with brushes, high-pressure jets, and harsh chemicals for the first week."
+        },
+        {
+          "q": "Will the wrap damage my original paint?",
+          "a": "No — wraps actually protect your original paint. When removed professionally, your OEM paint will be in the same condition as when applied."
+        },
+        {
+          "q": "Do you offer warranty on your wraps?",
+          "a": "Yes. We offer a 3-year installation warranty on Pro packages and 5 years on Elite. Material warranties are covered by the manufacturer."
+        },
+        {
+          "q": "Can you match a custom color?",
+          "a": "Absolutely. We have access to thousands of colors and can work with custom color mix orders through our premium material partners."
+        }
+      ]
+    }
+  },
+  "pricingData": {
+    "priceNote": "starting from",
+    "mostPopular": "Most Popular",
+    "tiers": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Perfect for accents & partial coverage",
+        "cta": "Get a Quote",
+        "features": ["Hood or roof wrap", "Mirror caps", "Racing stripes", "Surface prep", "Full exterior coverage", "Custom design", "PPF add-on", "Extended warranty"]
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Full transformation, professional finish",
+        "cta": "Book Now",
+        "features": ["Full exterior wrap", "All panel coverage", "Color change", "Surface prep & decontamination", "3-year warranty", "Custom design consultation", "PPF add-on", "5-year extended warranty"]
+      },
+      "elite": {
+        "name": "Elite",
+        "tagline": "The ultimate vehicle transformation",
+        "cta": "Book Elite",
+        "features": ["Full exterior wrap", "PPF on high-impact zones", "Custom design by our artists", "Chrome & specialty finishes", "5-year warranty", "Interior accents", "Ceramic coating option", "Priority scheduling"]
+      }
+    }
+  },
+  "aboutPage": {
+    "eyebrow": "Our Story",
+    "title": "BUILT BY ENTHUSIASTS",
+    "subtitle": "Martin Wrap Studio was born out of a passion for cars and a desire to elevate the standard of vehicle wrapping to a true art form.",
+    "storyTitle": "FROM A GARAGE TO A PREMIUM STUDIO",
+    "quote": "We started Martin Wrap Studio because we were tired of seeing great cars ruined by mediocre wraps.",
+    "quoteAuthor": "— Martin, Founder",
+    "storyP1": "In 2016, Martin started Martin Wrap Studio in a small 2-bay garage with a single installer and a vision: to bring European-quality car wrapping to the local automotive scene.",
+    "storyP2": "After training with some of the world's most respected wrap studios, Martin returned with a level of expertise rarely seen outside top-tier performance shops. The results spoke for themselves — word spread fast.",
+    "storyP3": "Today, Martin Wrap Studio operates from a purpose-built 10,000 sq ft temperature-controlled studio. Our team of certified specialists has transformed over 1,200 vehicles — from weekend track cars to supercar collections and entire commercial fleets.",
+    "storyP4": "We're not just a wrap shop. We're the team behind some of the most jaw-dropping vehicles you'll see on the street.",
+    "valuesEyebrow": "What We Stand For",
+    "valuesTitle": "Our Core Values",
+    "founderEyebrow": "The Man Behind the Work",
+    "founderTitle": "Meet Martin",
+    "studioEyebrow": "Our Studio",
+    "studioTitle": "Where the Magic Happens",
+    "ctaTitle": "READY TO WORK WITH US?",
+    "ctaSubtitle": "Get in touch and let's talk about transforming your vehicle.",
+    "ctaCta": "Start Your Project",
+    "values": [
+      { "title": "Uncompromising Quality", "desc": "We use only certified premium materials and refuse to cut corners — ever." },
+      { "title": "Precision Craftsmanship", "desc": "Every millimeter matters. Our installers are obsessed with perfect edges and seamless finishes." },
+      { "title": "Client-First Mindset", "desc": "Your vision drives everything we do. We listen, advise, and deliver beyond expectations." },
+      { "title": "Expert Team", "desc": "Certified by 3M, Avery Dennison, and XPEL — our team trains constantly to stay at the cutting edge." }
+    ],
+    "certs": ["3M Certified", "Avery Dennison", "XPEL Certified", "8+ Years Experience"],
+    "teamRole": "Founder & Master Installer",
+    "teamBio": "The passion and precision behind every wrap at Martin Wrap Studio. Certified by 3M, Avery Dennison & XPEL — dedicated to flawless results on every vehicle."
+  },
+  "contactPage": {
+    "eyebrow": "Get In Touch",
+    "title": "LET'S TALK",
+    "subtitle": "Book a consultation, get a quote, or just say hello. We respond to all inquiries within 24 hours.",
+    "infoTitle": "Contact Information",
+    "infoSubtitle": "Drop by the studio, give us a call, or send a message. We'd love to hear about your project.",
+    "formTitle": "Send Us a Message",
+    "followUs": "Follow Us",
+    "contactInfo": {
+      "location": "Studio Location",
+      "locationValue": "123 Auto Boulevard, Motor City, MC 90210",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Hours",
+      "hoursValue": "Mon–Sat 8am – 6pm\nSunday: Closed"
+    }
+  },
+  "form": {
+    "name": "Full Name",
+    "namePlaceholder": "John Smith",
+    "nameRequired": "Name is required",
+    "nameMin": "Min 2 characters",
+    "email": "Email Address",
+    "emailPlaceholder": "john@example.com",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "phone": "Phone (optional)",
+    "phonePlaceholder": "+1 (555) 000-0000",
+    "service": "Service Interested In",
+    "serviceRequired": "Please select a service",
+    "serviceSelect": "Select a service...",
+    "vehicle": "Your Vehicle (optional)",
+    "vehiclePlaceholder": "e.g. 2022 BMW M3, Tesla Model S",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about your project, preferred colors, timeline, or any questions...",
+    "messageRequired": "Message is required",
+    "messageMin": "Min 10 characters",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "successTitle": "Message Sent!",
+    "successBody": "We'll get back to you within 24 hours.",
+    "error": "Something went wrong. Please try again.",
+    "serviceOptions": [
+      "Full Car Wrap",
+      "Color Change Wrap",
+      "Partial Wrap",
+      "Commercial Branding",
+      "Paint Protection Film (PPF)",
+      "Other / Not Sure"
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "What Our Clients Say",
+    "subtitle": "Don't just take our word for it — hear from the car owners who trusted us with their pride and joy."
+  },
+  "notFound": {
+    "message": "This page doesn't exist — yet.",
+    "back": "Back to Home"
+  }
+}

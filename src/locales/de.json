@@ -1,0 +1,336 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "services": "Leistungen",
+    "gallery": "Galerie",
+    "pricing": "Preise",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "bookNow": "Jetzt buchen"
+  },
+  "footer": {
+    "tagline": "Martin Wrap Studio — Premium-Fahrzeugfolierung. Wir verwandeln Fahrzeuge mit Präzision, Leidenschaft und kompromissloser Qualität.",
+    "navigation": "Navigation",
+    "services": "Leistungen",
+    "contact": "Kontakt",
+    "serviceLinks": ["Vollfolierung", "Farbwechsel", "Teilfolierung", "Fahrzeugbeschriftung", "Lackschutzfolie"],
+    "privacy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen",
+    "sitemap": "Sitemap",
+    "copyright": "© {{year}} Martin Wrap Studio. Alle Rechte vorbehalten."
+  },
+  "common": {
+    "bookNow": "Jetzt buchen",
+    "viewGallery": "Zur Galerie",
+    "learnMore": "Mehr erfahren",
+    "startingFrom": "Ab",
+    "mostPopular": "Beliebteste",
+    "bookAWrap": "Folierung buchen",
+    "loading": "Lädt..."
+  },
+  "hero": {
+    "eyebrow": "Martin Wrap Studio",
+    "words": ["TRANSFORMIERE", "ERHEBE", "SCHÜTZE", "DOMINIERE"],
+    "yourRide": "DEIN FAHRZEUG.",
+    "subtitle": "Premium Vinyl-Folierung, Lackschutzfolie & Fahrzeugbeschriftung. Jedes Fahrzeug wird wie ein Meisterwerk behandelt.",
+    "bookConsultation": "Beratung buchen",
+    "viewGallery": "Zur Galerie"
+  },
+  "stats": {
+    "carsWrapped": "Folierte Fahrzeuge",
+    "yearsExperience": "Jahre Erfahrung",
+    "happyClients": "Zufriedene Kunden",
+    "wrapMaterials": "Folienmaterialien"
+  },
+  "home": {
+    "showcase": {
+      "eyebrow": "Showcase",
+      "title": "FOLIERUNGEN, DIE KÖPFE DREHEN",
+      "cta": "Zur Galerie"
+    },
+    "whyUs": {
+      "eyebrow": "Warum Martin Wrap Studio",
+      "title": "DER UNTERSCHIED LIEGT IM DETAIL",
+      "body": "Wir folieren nicht nur Autos — wir schaffen automobile Identitäten. Jede Kante ist eingearbeitet, jede Naht ist versteckt, jede Oberfläche ist perfekt. Es ist nicht nur eine Folie. Es ist eine Obsession.",
+      "cta": "Unsere Geschichte",
+      "items": [
+        {
+          "title": "Branchenzertifiziert",
+          "desc": "Von 3M, Avery Dennison & XPEL zertifizierte Monteure mit über 8 Jahren praktischer Erfahrung."
+        },
+        {
+          "title": "Präzisionsmontage",
+          "desc": "Modernste Werkzeuge und eine temperaturgesteuerte Umgebung für makellose Ergebnisse bei jedem Auftrag."
+        },
+        {
+          "title": "Schnelle Lieferzeit",
+          "desc": "Die meisten Vollfolierungen werden in 3–5 Tagen abgeschlossen. Verfügbarkeit in der gleichen Woche für Teilfolierungen."
+        }
+      ]
+    },
+    "beforeAfter": {
+      "beforeLabel": "Seriensilber",
+      "afterLabel": "Mattschwarz-Folie",
+      "hint": "Schieben Sie den Regler nach links/rechts, um die Transformation zu sehen"
+    },
+    "gallery": {
+      "eyebrow": "Unsere Arbeiten",
+      "title": "Aktuelle Projekte",
+      "cta": "Zur Galerie"
+    },
+    "cta": {
+      "title": "BEREIT, IHR FAHRZEUG ZU VERWANDELN?",
+      "body": "Vereinbaren Sie noch heute eine kostenlose Beratung. Teilen Sie uns Ihre Vision mit und wir setzen sie um — mit Präzision, Qualität und ohne Kompromisse.",
+      "quote": "Kostenloses Angebot",
+      "pricing": "Preise ansehen"
+    }
+  },
+  "serviceCards": {
+    "eyebrow": "Was wir tun",
+    "title": "Leistungen für Perfektionisten",
+    "subtitle": "Von vollständigen Fahrzeugtransformationen bis hin zu unsichtbarem Lackschutz — jede Leistung wird mit Präzision und jahrelanger Expertise durchgeführt.",
+    "startingFrom": "Ab",
+    "learnMore": "Mehr erfahren",
+    "mostPopular": "Beliebteste"
+  },
+  "servicesPage": {
+    "eyebrow": "Unser Angebot",
+    "title": "UNSERE LEISTUNGEN",
+    "subtitle": "Von unsichtbarem Lackschutz bis zur vollständigen Fahrzeugtransformation — jede Leistung wird mit kompromissloser Präzision durchgeführt.",
+    "startingFrom": "Ab",
+    "bookService": "Leistung buchen",
+    "cta": {
+      "eyebrow": "Loslegen",
+      "title": "Sie sind sich nicht sicher, welche Leistung Sie benötigen?",
+      "subtitle": "Unser Team bewertet Ihr Fahrzeug und Ihre Ziele und empfiehlt dann die perfekte Lösung. Kostenlose Beratungen verfügbar.",
+      "book": "Kostenlose Beratung buchen",
+      "pricing": "Preise ansehen"
+    }
+  },
+  "servicesData": {
+    "fullWrap": {
+      "shortLabel": "Vollfolierung",
+      "title": "Vollfolierung",
+      "description": "Vollständige Fahrzeugtransformation mit präzise geschnittener Vinyl-Folie, die sich an jeden Kontur Ihres Autos schmiegt und einen werksfrischen Look verleiht.",
+      "features": ["Vollständige Außenabdeckung", "Jede Farbe oder Oberfläche", "5 Jahre Garantie", "Professionelle Montage", "Oberflächenvorbereitung inklusive"]
+    },
+    "colorChange": {
+      "shortLabel": "Farbwechsel",
+      "title": "Farbwechselfolierung",
+      "description": "Dramatischer Farbwechsel ohne dauerhafte Lackierung. Von Mattschwarz bis Chrome — Ihre Vision wird Wirklichkeit.",
+      "features": ["Satin-, Matt- und Glanzoberflächen", "Chrome & Metallic-Optionen", "Vollständig reversibel", "OEM-Farbabgleich", "Individuelle Mischungen verfügbar"]
+    },
+    "partialWrap": {
+      "shortLabel": "Teilfolierung",
+      "title": "Teilfolierung",
+      "description": "Akzentpanele, Motorhaubenfolierungen oder Dachfolierungen — fügen Sie Stil und Schutz hinzu, ohne das gesamte Fahrzeug zu folieren.",
+      "features": ["Motorhaube, Dach, Spiegel", "Zierstreifen", "Individuelle Akzentpanele", "Budgetfreundlich", "Schnelle Lieferzeit"]
+    },
+    "commercial": {
+      "shortLabel": "Beschriftung",
+      "title": "Fahrzeugbeschriftung",
+      "description": "Verwandeln Sie Ihre Fahrzeugflotte in mobile Werbeflächen. Wirkungsstarke Beschriftungen für maximale Markensichtbarkeit.",
+      "features": ["Individueller Designservice", "Flottenrabatte", "Konturgeschnittene Grafiken", "UV-beständige Tinten", "Schnelle Flottenbearbeitung"]
+    },
+    "ppf": {
+      "shortLabel": "PPF",
+      "title": "Lackschutzfolie",
+      "description": "Unsichtbarer Schutz für Ihren Lack. PPF schützt vor Steinschlägen, Kratzern und UV-Schäden.",
+      "features": ["Selbstheilende Technologie", "Kristallklare Oberfläche", "10 Jahre Garantie", "Anti-Vergilbungsformel", "Hydrophobe Beschichtung"]
+    }
+  },
+  "galleryPage": {
+    "eyebrow": "Portfolio",
+    "title": "UNSERE GALERIE",
+    "subtitle": "Stöbern Sie in unserem Portfolio abgeschlossener Folierungen — von dezenten Farbwechseln bis hin zu atemberaubenden individuellen Designs.",
+    "color": "Farbe",
+    "beforeAfter": {
+      "eyebrow": "Transformationen",
+      "title": "Vorher & Nachher",
+      "subtitle": "Zwei Fotos — dasselbe Auto, vor und nach der Folierung. Schieben Sie den Regler, um es zu enthüllen.",
+      "pairs": [
+        { "beforeLabel": "Seriensilber", "afterLabel": "Mattschwarz-Folie", "vehicle": "Porsche 911 — Seriensilber → Mattschwarz-Folie" },
+        { "beforeLabel": "Serienrot", "afterLabel": "Chrome-Blau-Folie", "vehicle": "Ferrari — Serienrot → Chrome-Blau-Folie" },
+        { "beforeLabel": "Serienweiß", "afterLabel": "Satin-Dunkel-Folie", "vehicle": "BMW M — Serienweiß → Satin-Dunkel-Folie" },
+        { "beforeLabel": "Seriengelb", "afterLabel": "Color-Shift-Folie", "vehicle": "Lamborghini — Seriengelb → Color-Shift-Folie" }
+      ]
+    },
+    "categories": {
+      "all": "Alle",
+      "fullWrap": "Vollfolierung",
+      "colorChange": "Farbwechsel",
+      "ppf": "PPF",
+      "commercial": "Beschriftung",
+      "partial": "Teilfolierung"
+    }
+  },
+  "pricingPage": {
+    "eyebrow": "Transparente Preise",
+    "title": "INVESTITION IN EXZELLENZ",
+    "subtitle": "Ehrliche, transparente Preise ohne versteckte Kosten. Jedes Paket enthält professionelle Montage und unsere Qualitätsgarantie.",
+    "footnote": "* Preise sind Richtwerte und können je nach Fahrzeuggröße, Komplexität und Materialien variieren.",
+    "customQuote": "Individuelles Angebot anfragen.",
+    "addons": {
+      "eyebrow": "Optionale Extras",
+      "title": "Aufwerten Sie Ihr Paket",
+      "subtitle": "Personalisieren Sie Ihr Foliererlebnis mit Premium-Zusatzleistungen.",
+      "items": [
+        "Scheibentönung",
+        "Keramikversiegelung",
+        "Innenraumfolierung",
+        "Chrome-Entfernung",
+        "Scheinwerfertönung",
+        "Dachfolierung",
+        "Spiegelkappen",
+        "Individuelles Design"
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Häufige Fragen",
+      "subtitle": "Alles, was Sie wissen müssen, bevor Sie Ihre Folierung buchen.",
+      "stillHave": "Haben Sie noch Fragen?",
+      "askUs": "Fragen Sie uns",
+      "items": [
+        {
+          "q": "Wie lange dauert eine Vollfolierung?",
+          "a": "Eine Vollfolierung dauert in der Regel 3–5 Werktage, je nach Fahrzeuggröße und Komplexität. Nutzfahrzeugfolierungen können länger dauern."
+        },
+        {
+          "q": "Wie lange hält meine Folierung?",
+          "a": "Bei richtiger Pflege hält eine qualitativ hochwertige Vinyl-Folierung 5–7 Jahre. Wir verwenden Premium-Materialien von Avery Dennison und 3M mit UV-Schutz."
+        },
+        {
+          "q": "Kann ich mein foliertes Fahrzeug waschen?",
+          "a": "Ja! Handwäsche wird empfohlen. Vermeiden Sie in der ersten Woche automatische Waschanlagen mit Bürsten, Hochdruckstrahlen und aggressiven Chemikalien."
+        },
+        {
+          "q": "Beschädigt die Folie den Originallack?",
+          "a": "Nein — Folierungen schützen sogar Ihren Originallack. Bei professioneller Entfernung befindet sich Ihr OEM-Lack im gleichen Zustand wie bei der Aufbringung."
+        },
+        {
+          "q": "Bieten Sie Garantie auf Ihre Folierungen?",
+          "a": "Ja. Wir bieten eine 3-jährige Montagegarantie für Pro-Pakete und 5 Jahre für Elite. Materialgarantien werden vom Hersteller übernommen."
+        },
+        {
+          "q": "Können Sie eine individuelle Farbe anpassen?",
+          "a": "Absolut. Wir haben Zugang zu tausenden von Farben und können mit individuellen Farbmischbestellungen über unsere Premium-Materialpartner arbeiten."
+        }
+      ]
+    }
+  },
+  "pricingData": {
+    "priceNote": "ab",
+    "mostPopular": "Beliebteste",
+    "tiers": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Perfekt für Akzente & Teilabdeckung",
+        "cta": "Angebot anfragen",
+        "features": ["Motorhaube oder Dachfolierung", "Spiegelkappen", "Zierstreifen", "Oberflächenvorbereitung", "Vollständige Außenabdeckung", "Individuelles Design", "PPF-Zusatz", "Erweiterte Garantie"]
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Vollständige Transformation, professionelle Ausführung",
+        "cta": "Jetzt buchen",
+        "features": ["Vollfolierung Außen", "Alle Paneele abgedeckt", "Farbwechsel", "Oberflächenvorbereitung & Dekontamination", "3 Jahre Garantie", "Individuelle Designberatung", "PPF-Zusatz", "5 Jahre erweiterte Garantie"]
+      },
+      "elite": {
+        "name": "Elite",
+        "tagline": "Die ultimative Fahrzeugtransformation",
+        "cta": "Elite buchen",
+        "features": ["Vollfolierung Außen", "PPF auf Hochbelastungszonen", "Individuelles Design unserer Künstler", "Chrome & Spezialfinishes", "5 Jahre Garantie", "Innenraumakzente", "Option Keramikversiegelung", "Priorisierte Terminvergabe"]
+      }
+    }
+  },
+  "aboutPage": {
+    "eyebrow": "Unsere Geschichte",
+    "title": "GEBAUT VON ENTHUSIASTEN",
+    "subtitle": "Martin Wrap Studio wurde aus einer Leidenschaft für Autos und dem Wunsch geboren, den Standard der Fahrzeugfolierung zu einer wahren Kunstform zu erheben.",
+    "storyTitle": "VON DER GARAGE ZUM PREMIUM-STUDIO",
+    "quote": "Wir gründeten Martin Wrap Studio, weil wir es leid waren, tolle Autos durch mittelmäßige Folierungen ruiniert zu sehen.",
+    "quoteAuthor": "— Martin, Gründer",
+    "storyP1": "Im Jahr 2016 gründete Martin Martin Wrap Studio in einer kleinen Garage mit einem einzigen Monteur und einer Vision: europäische Qualität der Fahrzeugfolierung in die lokale Automobilszene zu bringen.",
+    "storyP2": "Nach der Ausbildung bei einigen der weltweit angesehensten Folierungsstudios kehrte Martin mit einem Expertenwissen zurück, das außerhalb von Top-Performance-Shops selten zu finden ist. Die Ergebnisse sprachen für sich — die Nachricht verbreitete sich schnell.",
+    "storyP3": "Heute operiert Martin Wrap Studio aus einem eigens erbauten, temperaturgesteuerten Studio mit 930 m². Unser Team zertifizierter Spezialisten hat über 1.200 Fahrzeuge transformiert — von Rennwagen für das Wochenende bis hin zu Supersportwagen-Sammlungen und gesamten Flottenfahrzeugen.",
+    "storyP4": "Wir sind nicht nur ein Folierungsshop. Wir sind das Team hinter einigen der atemberaubendsten Fahrzeuge, die Sie auf der Straße sehen werden.",
+    "valuesEyebrow": "Wofür wir stehen",
+    "valuesTitle": "Unsere Kernwerte",
+    "founderEyebrow": "Der Mann hinter der Arbeit",
+    "founderTitle": "Lerne Martin kennen",
+    "studioEyebrow": "Unser Studio",
+    "studioTitle": "Wo die Magie passiert",
+    "ctaTitle": "BEREIT, MIT UNS ZU ARBEITEN?",
+    "ctaSubtitle": "Nehmen Sie Kontakt auf und lassen Sie uns über die Transformation Ihres Fahrzeugs sprechen.",
+    "ctaCta": "Projekt starten",
+    "values": [
+      { "title": "Kompromisslose Qualität", "desc": "Wir verwenden nur zertifizierte Premiummaterialien und schneiden niemals Abstriche — niemals." },
+      { "title": "Präzisionshandwerk", "desc": "Jeder Millimeter zählt. Unsere Monteure sind besessen von perfekten Kanten und nahtlosen Oberflächen." },
+      { "title": "Der Kunde steht an erster Stelle", "desc": "Ihre Vision treibt alles, was wir tun, an. Wir hören zu, beraten und liefern über die Erwartungen hinaus." },
+      { "title": "Expertenteam", "desc": "Zertifiziert von 3M, Avery Dennison und XPEL — unser Team bildet sich ständig weiter, um an der Spitze zu bleiben." }
+    ],
+    "certs": ["3M Zertifiziert", "Avery Dennison", "XPEL Zertifiziert", "8+ Jahre Erfahrung"],
+    "teamRole": "Gründer & Master-Folierer",
+    "teamBio": "Die Leidenschaft und Präzision hinter jeder Folierung bei Martin Wrap Studio. Zertifiziert von 3M, Avery Dennison & XPEL — engagiert für makellose Ergebnisse bei jedem Fahrzeug."
+  },
+  "contactPage": {
+    "eyebrow": "Kontakt aufnehmen",
+    "title": "REDEN WIR",
+    "subtitle": "Vereinbaren Sie eine Beratung, holen Sie ein Angebot ein oder sagen Sie einfach Hallo. Wir antworten auf alle Anfragen innerhalb von 24 Stunden.",
+    "infoTitle": "Kontaktinformationen",
+    "infoSubtitle": "Besuchen Sie das Studio, rufen Sie uns an oder schreiben Sie uns. Wir freuen uns, von Ihrem Projekt zu hören.",
+    "formTitle": "Senden Sie uns eine Nachricht",
+    "followUs": "Folgen Sie uns",
+    "contactInfo": {
+      "location": "Studio-Standort",
+      "locationValue": "123 Auto Boulevard, Motor City, MC 90210",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "hours": "Öffnungszeiten",
+      "hoursValue": "Mo–Sa 8:00 – 18:00 Uhr\nSonntag: Geschlossen"
+    }
+  },
+  "form": {
+    "name": "Vollständiger Name",
+    "namePlaceholder": "Max Mustermann",
+    "nameRequired": "Name ist erforderlich",
+    "nameMin": "Mindestens 2 Zeichen",
+    "email": "E-Mail-Adresse",
+    "emailPlaceholder": "max@example.com",
+    "emailRequired": "E-Mail ist erforderlich",
+    "emailInvalid": "Ungültige E-Mail-Adresse",
+    "phone": "Telefon (optional)",
+    "phonePlaceholder": "+49 (0) 000 000000",
+    "service": "Gewünschte Leistung",
+    "serviceRequired": "Bitte wählen Sie eine Leistung",
+    "serviceSelect": "Leistung auswählen...",
+    "vehicle": "Ihr Fahrzeug (optional)",
+    "vehiclePlaceholder": "z.B. BMW M3 2022, Tesla Model S",
+    "message": "Nachricht",
+    "messagePlaceholder": "Erzählen Sie uns von Ihrem Projekt, bevorzugten Farben, Zeitplan oder Fragen...",
+    "messageRequired": "Nachricht ist erforderlich",
+    "messageMin": "Mindestens 10 Zeichen",
+    "send": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "successTitle": "Nachricht gesendet!",
+    "successBody": "Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "serviceOptions": [
+      "Vollfolierung",
+      "Farbwechselfolierung",
+      "Teilfolierung",
+      "Fahrzeugbeschriftung",
+      "Lackschutzfolie (PPF)",
+      "Sonstiges / Nicht sicher"
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Kundenstimmen",
+    "title": "Was unsere Kunden sagen",
+    "subtitle": "Verlassen Sie sich nicht nur auf unser Wort — hören Sie von den Fahrzeugbesitzern, die uns ihr Ein und Alles anvertraut haben."
+  },
+  "notFound": {
+    "message": "Diese Seite existiert noch nicht.",
+    "back": "Zurück zur Startseite"
+  }
+}

@@ -1,7 +1,8 @@
 import { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Zap, Award, Clock } from 'lucide-react';
+import { ArrowRight, Award, Zap, Clock } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Hero from '@/widgets/Hero/Hero';
 import ServiceCards from '@/widgets/ServiceCards/ServiceCards';
 import Testimonials from '@/widgets/Testimonials/Testimonials';
@@ -14,30 +15,17 @@ import ImageCarousel from '@/widgets/ImageCarousel/ImageCarousel';
 const GalleryGrid = lazy(() => import('@/widgets/GalleryGrid/GalleryGrid'));
 const BeforeAfterSlider = lazy(() => import('@/widgets/BeforeAfter/BeforeAfterSlider'));
 
-const WHY_US = [
-  {
-    icon: Award,
-    title: 'Industry-Certified',
-    desc: '3M, Avery Dennison & XPEL certified installers with 8+ years of hands-on experience.',
-  },
-  {
-    icon: Zap,
-    title: 'Precision Installation',
-    desc: 'State-of-the-art tools and a temperature-controlled environment for flawless results every time.',
-  },
-  {
-    icon: Clock,
-    title: 'Fast Turnaround',
-    desc: 'Most full wraps completed in 3–5 days. Same-week availability for partial wraps.',
-  },
-];
+const WHY_US_ICONS = [Award, Zap, Clock] as const;
 
 export default function Home() {
+  const { t } = useTranslation();
+  const whyUsItems = t('home.whyUs.items', { returnObjects: true }) as Array<{ title: string; desc: string }>;
+
   return (
     <div>
       <Hero />
 
-      {/* ── Wrap Showcase Carousel ──────────────────────────────────────────── */}
+      {/* Wrap Showcase Carousel */}
       <section className="py-16 sm:py-20 bg-[#080810]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
@@ -45,18 +33,18 @@ export default function Home() {
               <div>
                 <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-cyan-500 mb-3">
                   <span className="w-6 h-px bg-cyan-500" />
-                  Showcase
+                  {t('home.showcase.eyebrow')}
                 </span>
                 <h2
                   className="text-4xl sm:text-5xl font-black leading-tight"
                   style={{ fontFamily: 'Barlow Condensed, sans-serif', color: 'var(--text-primary)' }}
                 >
-                  WRAPS THAT TURN <span className="gradient-text">HEADS</span>
+                  {t('home.showcase.title')}
                 </h2>
               </div>
               <Link to="/gallery">
                 <Button variant="secondary" size="md" className="group shrink-0">
-                  View Gallery <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  {t('home.showcase.cta')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </div>
@@ -75,24 +63,22 @@ export default function Home() {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left */}
             <div>
               <ScrollReveal>
                 <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-cyan-400 mb-4">
                   <span className="w-6 h-px bg-cyan-400" />
-                  Why Martin Wrap Studio
+                  {t('home.whyUs.eyebrow')}
                 </span>
                 <h2
                   className="text-5xl font-black text-white mb-6 leading-tight"
                   style={{ fontFamily: 'Barlow Condensed, sans-serif' }}
                 >
-                  THE DIFFERENCE IS IN THE DETAILS
+                  {t('home.whyUs.title')}
                 </h2>
                 <p className="text-slate-400 leading-relaxed mb-8">
-                  We don't just wrap cars — we craft automotive identities. Every edge is tucked, every seam is hidden, every surface is perfect. It's not just a wrap. It's an obsession.
+                  {t('home.whyUs.body')}
                 </p>
               </ScrollReveal>
-
               <motion.div
                 variants={staggerContainer}
                 initial="hidden"
@@ -100,43 +86,44 @@ export default function Home() {
                 viewport={VIEWPORT_CONFIG}
                 className="space-y-6"
               >
-                {WHY_US.map(({ icon: Icon, title, desc }) => (
-                  <motion.div key={title} variants={staggerItem} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-cyan-400/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Icon className="w-5 h-5 text-cyan-400" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-white mb-1">{title}</h3>
-                      <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
+                {whyUsItems.map(({ title, desc }, idx) => {
+                  const Icon = WHY_US_ICONS[idx];
+                  return (
+                    <motion.div key={title} variants={staggerItem} className="flex gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-cyan-400/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <Icon className="w-5 h-5 text-cyan-400" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-white mb-1">{title}</h3>
+                        <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </motion.div>
-
               <ScrollReveal delay={0.3} className="mt-8">
                 <Link to="/about">
                   <Button variant="secondary" size="md" className="group">
-                    Our Story <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    {t('home.whyUs.cta')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </ScrollReveal>
             </div>
 
-            {/* Right — Before/After slider */}
             <ScrollReveal>
               <Suspense fallback={<div className="aspect-video rounded-2xl bg-[#0d0d1a] animate-pulse" />}>
                 <BeforeAfterSlider
                   beforeSrc="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=900&q=80"
                   afterSrc="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=900&q=80"
-                  beforeLabel="Factory Silver"
-                  afterLabel="Matte Black Wrap"
+                  beforeLabel={t('home.beforeAfter.beforeLabel')}
+                  afterLabel={t('home.beforeAfter.afterLabel')}
                   flipAfter={true}
                   beforePosition="50% 60%"
                   afterPosition="50% 60%"
                 />
               </Suspense>
               <p className="text-center text-xs text-slate-500 mt-3">
-                Drag the handle left/right to see the transformation
+                {t('home.beforeAfter.hint')}
               </p>
             </ScrollReveal>
           </div>
@@ -148,14 +135,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <SectionHeader
-              eyebrow="Our Work"
-              title="Recent Wraps"
+              eyebrow={t('home.gallery.eyebrow')}
+              title={t('home.gallery.title')}
               centered={false}
               className="mb-0"
             />
             <Link to="/gallery">
               <Button variant="secondary" size="md" className="group shrink-0">
-                Full Gallery <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                {t('home.gallery.cta')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>
@@ -189,21 +176,21 @@ export default function Home() {
             className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6"
             style={{ fontFamily: 'Barlow Condensed, sans-serif' }}
           >
-            READY TO <span className="gradient-text">TRANSFORM</span> YOUR RIDE?
+            {t('home.cta.title')}
           </h2>
           <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
-            Book a free consultation today. Tell us your vision and we'll bring it to life — with precision, quality, and zero compromise.
+            {t('home.cta.body')}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link to="/contact">
               <Button size="xl" variant="primary" className="group">
-                Get a Free Quote
+                {t('home.cta.quote')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/pricing">
               <Button size="xl" variant="secondary">
-                View Pricing
+                {t('home.cta.pricing')}
               </Button>
             </Link>
           </div>

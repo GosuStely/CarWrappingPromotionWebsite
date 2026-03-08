@@ -2,19 +2,20 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ZoomIn } from 'lucide-react';
 import { clsx } from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { GALLERY_ITEMS } from '@/helpers/constants';
 import { Modal } from '@/components/ui/Modal';
 import { RevealImage } from '@/components/animations/RevealImage';
 import { staggerContainer, staggerItem, VIEWPORT_CONFIG } from '@/helpers/animations';
 import type { GalleryCategory, GalleryItem } from '@/types/gallery';
 
-const CATEGORIES: { label: string; value: GalleryCategory }[] = [
-  { label: 'All', value: 'all' },
-  { label: 'Full Wrap', value: 'full-wrap' },
-  { label: 'Color Change', value: 'color-change' },
-  { label: 'PPF', value: 'ppf' },
-  { label: 'Commercial', value: 'commercial' },
-  { label: 'Partial', value: 'partial' },
+const CATEGORY_KEYS: { labelKey: string; value: GalleryCategory }[] = [
+  { labelKey: 'galleryPage.categories.all', value: 'all' },
+  { labelKey: 'galleryPage.categories.fullWrap', value: 'full-wrap' },
+  { labelKey: 'galleryPage.categories.colorChange', value: 'color-change' },
+  { labelKey: 'galleryPage.categories.ppf', value: 'ppf' },
+  { labelKey: 'galleryPage.categories.commercial', value: 'commercial' },
+  { labelKey: 'galleryPage.categories.partial', value: 'partial' },
 ];
 
 function GalleryCard({ item, onClick }: { item: GalleryItem; onClick: () => void }) {
@@ -32,21 +33,14 @@ function GalleryCard({ item, onClick }: { item: GalleryItem; onClick: () => void
         containerClassName="w-full h-full"
         className="transition-transform duration-700 group-hover:scale-110"
       />
-      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-      {/* Info */}
       <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
         <h3 className="text-white font-bold text-sm">{item.title}</h3>
         <p className="text-cyan-400 text-xs mt-0.5">{item.vehicle}</p>
       </div>
-
-      {/* Zoom icon */}
       <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-cyan-400/20 backdrop-blur-sm border border-cyan-400/30 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
         <ZoomIn className="w-3.5 h-3.5 text-cyan-400" />
       </div>
-
-      {/* Category badge */}
       <div className="absolute top-3 left-3">
         <span className="text-[10px] font-bold tracking-wide uppercase px-2 py-1 rounded-full bg-black/50 text-slate-300 backdrop-blur-sm border border-white/10">
           {item.category.replace('-', ' ')}
@@ -59,6 +53,7 @@ function GalleryCard({ item, onClick }: { item: GalleryItem; onClick: () => void
 export default function GalleryGrid({ limit }: { limit?: number }) {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>('all');
   const [selected, setSelected] = useState<GalleryItem | null>(null);
+  const { t } = useTranslation();
 
   const filtered = (
     activeCategory === 'all'
@@ -68,9 +63,8 @@ export default function GalleryGrid({ limit }: { limit?: number }) {
 
   return (
     <div>
-      {/* Filter tabs */}
       <div className="flex flex-wrap gap-2 mb-8">
-        {CATEGORIES.map((cat) => (
+        {CATEGORY_KEYS.map((cat) => (
           <button
             key={cat.value}
             onClick={() => setActiveCategory(cat.value)}
@@ -81,12 +75,11 @@ export default function GalleryGrid({ limit }: { limit?: number }) {
                 : 'border border-white/10 text-slate-400 hover:text-white hover:border-white/30'
             )}
           >
-            {cat.label}
+            {t(cat.labelKey)}
           </button>
         ))}
       </div>
 
-      {/* Grid */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -102,7 +95,6 @@ export default function GalleryGrid({ limit }: { limit?: number }) {
         </AnimatePresence>
       </motion.div>
 
-      {/* Modal viewer */}
       <Modal isOpen={!!selected} onClose={() => setSelected(null)}>
         {selected && (
           <div className="relative">
@@ -114,7 +106,9 @@ export default function GalleryGrid({ limit }: { limit?: number }) {
             <div className="p-6 border-t border-white/10">
               <h3 className="text-xl font-bold text-white mb-1">{selected.title}</h3>
               <p className="text-cyan-400 text-sm">{selected.vehicle}</p>
-              {selected.color && <p className="text-slate-400 text-sm mt-1">Color: {selected.color}</p>}
+              {selected.color && (
+                <p className="text-slate-400 text-sm mt-1">{t('galleryPage.color')}: {selected.color}</p>
+              )}
               <div className="flex flex-wrap gap-2 mt-3">
                 {selected.tags?.map((tag) => (
                   <span key={tag} className="text-xs px-2 py-1 rounded-full bg-white/5 text-slate-400 border border-white/10">

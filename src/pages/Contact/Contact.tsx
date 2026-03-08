@@ -1,36 +1,20 @@
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import ContactForm from '@/widgets/ContactForm/ContactForm';
 import { staggerContainer, staggerItem, VIEWPORT_CONFIG } from '@/helpers/animations';
 
-const CONTACT_INFO = [
-  {
-    icon: MapPin,
-    label: 'Studio Location',
-    value: '123 Auto Boulevard, Motor City, MC 90210',
-    href: 'https://maps.google.com',
-  },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
-  },
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'hello@martinwrap.studio',
-    href: 'mailto:hello@martinwrap.studio',
-  },
-  {
-    icon: Clock,
-    label: 'Hours',
-    value: 'Mon–Sat 8am – 6pm\nSunday: Closed',
-  },
-];
-
 export default function Contact() {
+  const { t } = useTranslation();
+
+  const contactInfoItems = [
+    { icon: MapPin, label: t('contactPage.contactInfo.location'), value: t('contactPage.contactInfo.locationValue'), href: 'https://maps.google.com' },
+    { icon: Phone, label: t('contactPage.contactInfo.phone'), value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
+    { icon: Mail, label: t('contactPage.contactInfo.email'), value: 'hello@martinwrap.studio', href: 'mailto:hello@martinwrap.studio' },
+    { icon: Clock, label: t('contactPage.contactInfo.hours'), value: t('contactPage.contactInfo.hoursValue') },
+  ];
+
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -41,14 +25,14 @@ export default function Contact() {
           <ScrollReveal>
             <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-cyan-400 mb-4">
               <span className="w-6 h-px bg-cyan-400" />
-              Get In Touch
+              {t('contactPage.eyebrow')}
               <span className="w-6 h-px bg-cyan-400" />
             </span>
             <h1 className="text-6xl sm:text-7xl font-black text-white mb-6" style={{ fontFamily: 'Barlow Condensed, sans-serif' }}>
-              LET'S <span className="gradient-text">TALK</span>
+              {t('contactPage.title')}
             </h1>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-              Book a consultation, get a quote, or just say hello. We respond to all inquiries within 24 hours.
+              {t('contactPage.subtitle')}
             </p>
           </ScrollReveal>
         </div>
@@ -69,14 +53,14 @@ export default function Contact() {
               >
                 <motion.div variants={staggerItem}>
                   <h2 className="text-2xl font-black text-white mb-2" style={{ fontFamily: 'Barlow Condensed, sans-serif' }}>
-                    Contact Information
+                    {t('contactPage.infoTitle')}
                   </h2>
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    Drop by the studio, give us a call, or send a message. We'd love to hear about your project.
+                    {t('contactPage.infoSubtitle')}
                   </p>
                 </motion.div>
 
-                {CONTACT_INFO.map(({ icon: Icon, label, value, href }) => (
+                {contactInfoItems.map(({ icon: Icon, label, value, href }) => (
                   <motion.div key={label} variants={staggerItem} className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-cyan-400/10 flex items-center justify-center shrink-0 mt-0.5">
                       <Icon className="w-4 h-4 text-cyan-400" />
@@ -96,7 +80,7 @@ export default function Contact() {
 
                 {/* Social */}
                 <motion.div variants={staggerItem}>
-                  <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">Follow Us</div>
+                  <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">{t('contactPage.followUs')}</div>
                   <div className="flex gap-3">
                     {[
                       { icon: Instagram, href: '#', label: 'Instagram' },
@@ -124,7 +108,7 @@ export default function Contact() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="lg:col-span-3 glass rounded-2xl p-6 sm:p-8 border border-white/5"
             >
-              <h2 className="text-xl font-bold text-white mb-6">Send Us a Message</h2>
+              <h2 className="text-xl font-bold text-white mb-6">{t('contactPage.formTitle')}</h2>
               <ContactForm />
             </motion.div>
           </div>
@@ -154,7 +138,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Bottom spacing */}
       <div className="h-16 bg-[#080810]" />
     </div>
   );

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/Button';
 import { clsx } from 'clsx';
 
@@ -14,19 +15,12 @@ interface FormData {
   message: string;
 }
 
-const SERVICE_OPTIONS = [
-  'Full Car Wrap',
-  'Color Change Wrap',
-  'Partial Wrap',
-  'Commercial Branding',
-  'Paint Protection Film (PPF)',
-  'Other / Not Sure',
-];
-
 type SubmitStatus = 'idle' | 'success' | 'error';
 
 export default function ContactForm() {
+  const { t } = useTranslation();
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
+  const serviceOptions = t('form.serviceOptions', { returnObjects: true }) as string[];
   const {
     register,
     handleSubmit,
@@ -35,7 +29,7 @@ export default function ContactForm() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    await new Promise((r) => setTimeout(r, 1200)); // Simulate API call
+    await new Promise((r) => setTimeout(r, 1200));
     console.log('Form submitted:', data);
     setSubmitStatus('success');
     reset();
@@ -61,8 +55,8 @@ export default function ContactForm() {
         <div className="w-16 h-16 rounded-full bg-green-400/10 flex items-center justify-center mb-4">
           <CheckCircle className="w-8 h-8 text-green-400" />
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-        <p className="text-slate-400">We'll get back to you within 24 hours.</p>
+        <h3 className="text-2xl font-bold text-white mb-2">{t('form.successTitle')}</h3>
+        <p className="text-slate-400">{t('form.successBody')}</p>
       </motion.div>
     );
   }
@@ -72,30 +66,30 @@ export default function ContactForm() {
       {submitStatus === 'error' && (
         <div className="flex items-center gap-2 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
           <AlertCircle className="w-4 h-4 shrink-0" />
-          Something went wrong. Please try again.
+          {t('form.error')}
         </div>
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-medium text-slate-400 mb-1.5">Full Name *</label>
+          <label className="block text-xs font-medium text-slate-400 mb-1.5">{t('form.name')} *</label>
           <input
-            {...register('name', { required: 'Name is required', minLength: { value: 2, message: 'Min 2 characters' } })}
-            placeholder="John Smith"
+            {...register('name', { required: t('form.nameRequired'), minLength: { value: 2, message: t('form.nameMin') } })}
+            placeholder={t('form.namePlaceholder')}
             className={fieldClass(!!errors.name)}
           />
           {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name.message}</p>}
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-slate-400 mb-1.5">Email Address *</label>
+          <label className="block text-xs font-medium text-slate-400 mb-1.5">{t('form.email')} *</label>
           <input
             type="email"
             {...register('email', {
-              required: 'Email is required',
-              pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email address' },
+              required: t('form.emailRequired'),
+              pattern: { value: /^[^s@]+@[^s@]+.[^s@]+$/, message: t('form.emailInvalid') },
             })}
-            placeholder="john@example.com"
+            placeholder={t('form.emailPlaceholder')}
             className={fieldClass(!!errors.email)}
           />
           {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email.message}</p>}
@@ -104,24 +98,24 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-medium text-slate-400 mb-1.5">Phone (optional)</label>
+          <label className="block text-xs font-medium text-slate-400 mb-1.5">{t('form.phone')}</label>
           <input
             type="tel"
             {...register('phone')}
-            placeholder="+1 (555) 000-0000"
+            placeholder={t('form.phonePlaceholder')}
             className={fieldClass(false)}
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-slate-400 mb-1.5">Service Interested In *</label>
+          <label className="block text-xs font-medium text-slate-400 mb-1.5">{t('form.service')} *</label>
           <select
-            {...register('service', { required: 'Please select a service' })}
+            {...register('service', { required: t('form.serviceRequired') })}
             className={clsx(fieldClass(!!errors.service), 'appearance-none cursor-pointer')}
             defaultValue=""
           >
-            <option value="" disabled>Select a service...</option>
-            {SERVICE_OPTIONS.map((s) => (
+            <option value="" disabled>{t('form.serviceSelect')}</option>
+            {serviceOptions.map((s) => (
               <option key={s} value={s} className="bg-[#0d0d1a]">{s}</option>
             ))}
           </select>
@@ -130,41 +124,35 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-slate-400 mb-1.5">Your Vehicle (optional)</label>
+        <label className="block text-xs font-medium text-slate-400 mb-1.5">{t('form.vehicle')}</label>
         <input
           {...register('vehicle')}
-          placeholder="e.g. 2022 BMW M3, Tesla Model S"
+          placeholder={t('form.vehiclePlaceholder')}
           className={fieldClass(false)}
         />
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-slate-400 mb-1.5">Message *</label>
+        <label className="block text-xs font-medium text-slate-400 mb-1.5">{t('form.message')} *</label>
         <textarea
-          {...register('message', { required: 'Message is required', minLength: { value: 10, message: 'Min 10 characters' } })}
-          placeholder="Tell us about your project, preferred colors, timeline, or any questions..."
+          {...register('message', { required: t('form.messageRequired'), minLength: { value: 10, message: t('form.messageMin') } })}
+          placeholder={t('form.messagePlaceholder')}
           rows={5}
           className={clsx(fieldClass(!!errors.message), 'resize-none')}
         />
         {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message.message}</p>}
       </div>
 
-      <Button
-        type="submit"
-        size="lg"
-        variant="primary"
-        className="w-full"
-        disabled={isSubmitting}
-      >
+      <Button type="submit" size="lg" variant="primary" className="w-full" disabled={isSubmitting}>
         {isSubmitting ? (
           <>
             <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
-            Sending...
+            {t('form.sending')}
           </>
         ) : (
           <>
             <Send className="w-4 h-4" />
-            Send Message
+            {t('form.send')}
           </>
         )}
       </Button>

@@ -13,10 +13,10 @@ export const NAV_LINKS = [
 ] as const;
 
 export const STATS = [
-  { value: 1200, label: 'Cars Wrapped', suffix: '+' },
-  { value: 8, label: 'Years Experience', suffix: '+' },
-  { value: 98, label: 'Happy Clients', suffix: '%' },
-  { value: 15, label: 'Wrap Materials', suffix: '+' },
+  { key: 'carsWrapped', value: 1200, label: 'Cars Wrapped', suffix: '+' },
+  { key: 'yearsExperience', value: 8, label: 'Years Experience', suffix: '+' },
+  { key: 'happyClients', value: 98, label: 'Happy Clients', suffix: '%' },
+  { key: 'wrapMaterials', value: 15, label: 'Wrap Materials', suffix: '+' },
 ] as const;
 
 export const SERVICES: Service[] = [
