@@ -5,8 +5,6 @@ import { Menu, X, Zap, Globe } from 'lucide-react';
 import { clsx } from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { NAV_LINKS } from '@/helpers/constants';
-import ThemeToggle from '@/components/ui/ThemeToggle';
-import { useTheme } from '@/hooks/useTheme';
 
 const LANGUAGES = [
   { code: 'en', label: 'English', flag: '🇬🇧' },
@@ -16,7 +14,7 @@ const LANGUAGES = [
 
 const NAV_KEYS = ['home', 'services', 'gallery', 'pricing', 'about', 'contact'] as const;
 
-function LanguageSwitcher({ isDark }: { isDark: boolean }) {
+function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -40,10 +38,7 @@ function LanguageSwitcher({ isDark }: { isDark: boolean }) {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className={clsx(
-          'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-200',
-          isDark ? 'text-slate-300 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-        )}
+        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-200 text-slate-300 hover:text-white hover:bg-white/10"
         aria-label="Change language"
       >
         <Globe className="w-4 h-4" />
@@ -67,7 +62,7 @@ function LanguageSwitcher({ isDark }: { isDark: boolean }) {
                   'w-full flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors duration-150',
                   lang.code === i18n.language
                     ? 'text-cyan-400 bg-cyan-400/10'
-                    : isDark ? 'text-slate-300 hover:text-white hover:bg-white/5' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    : 'text-slate-300 hover:text-white hover:bg-white/5'
                 )}
               >
                 <span className="text-base">{lang.flag}</span>
@@ -85,7 +80,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-  const { isDark } = useTheme();
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -123,7 +117,7 @@ export default function Navbar() {
                 <div className="absolute inset-0 rounded-lg bg-cyan-400/20 blur-md group-hover:blur-lg transition-all duration-300" />
               </div>
               <span
-                className={clsx('text-xl font-black tracking-wider leading-none transition-colors duration-200', isDark ? 'text-white' : 'text-slate-900')}
+                className="text-xl font-black tracking-wider leading-none text-white transition-colors duration-200"
                 style={{ fontFamily: 'Barlow Condensed, sans-serif' }}
               >
                 MARTIN <span className="text-cyan-500">WRAP</span>
@@ -137,7 +131,7 @@ export default function Navbar() {
                   to={link.path}
                   className={clsx(
                     'text-sm font-medium tracking-wide transition-colors duration-200 relative group',
-                    location.pathname === link.path ? 'text-cyan-500' : isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                    location.pathname === link.path ? 'text-cyan-500' : 'text-slate-300 hover:text-white'
                   )}
                 >
                   {t(`nav.${NAV_KEYS[i]}`)}
@@ -147,18 +141,17 @@ export default function Navbar() {
             </div>
 
             <div className="hidden lg:flex items-center gap-2">
-              <LanguageSwitcher isDark={isDark} />
+              <LanguageSwitcher />
               <Link to="/contact" className="px-5 py-2 rounded-full text-sm font-semibold bg-cyan-500 text-white hover:bg-cyan-400 hover:text-black transition-all duration-200 hover:shadow-[0_0_20px_rgba(0,210,230,0.45)]">
                 {t('nav.bookNow')}
               </Link>
             </div>
 
             <div className="flex lg:hidden items-center gap-1">
-              <LanguageSwitcher isDark={isDark} />
-              <ThemeToggle />
+              <LanguageSwitcher />
               <button
                 onClick={() => setMobileOpen((v) => !v)}
-                className={clsx('p-2 rounded-xl transition-colors duration-200', isDark ? 'text-slate-300 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100')}
+                className="p-2 rounded-xl transition-colors duration-200 text-slate-300 hover:text-white hover:bg-white/10"
                 aria-label="Toggle menu"
               >
                 {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -185,7 +178,7 @@ export default function Navbar() {
                   to={link.path}
                   className={clsx(
                     'px-4 py-3 rounded-xl text-sm font-medium transition-colors duration-200',
-                    location.pathname === link.path ? 'text-cyan-500 bg-cyan-500/10' : isDark ? 'text-slate-300 hover:text-white hover:bg-white/5' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    location.pathname === link.path ? 'text-cyan-500 bg-cyan-500/10' : 'text-slate-300 hover:text-white hover:bg-white/5'
                   )}
                 >
                   {t(`nav.${NAV_KEYS[i]}`)}
@@ -203,7 +196,7 @@ export default function Navbar() {
                       'flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-medium transition-colors duration-200',
                       lang.code === i18n.language
                         ? 'bg-cyan-500/15 text-cyan-400 border border-cyan-400/30'
-                        : isDark ? 'text-slate-400 hover:text-white hover:bg-white/5 border border-white/10' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100 border border-slate-200'
+                        : 'text-slate-400 hover:text-white hover:bg-white/5 border border-white/10'
                     )}
                   >
                     <span>{lang.flag}</span>

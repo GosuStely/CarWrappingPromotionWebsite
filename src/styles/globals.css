@@ -3,36 +3,8 @@
 /* ── Tailwind v4 class-based dark mode ─────────────────────────────────────── */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ── Design tokens (CSS custom properties) ─────────────────────────────────── */
-/* Light mode defaults — clean, bright, professional automotive */
+/* ── Design tokens — dark mode only ────────────────────────────────────────── */
 :root {
-  --bg-base:       #f0f4f8;
-  --bg-subtle:     #e4eaf2;
-  --bg-muted:      #d8e0eb;
-  --bg-card:       #ffffff;
-  --bg-card-2:     #f5f7fa;
-  --bg-elevated:   #ffffff;
-
-  --text-primary:  #0b1120;
-  --text-secondary:#334155;
-  --text-muted:    #64748b;
-  --text-accent:   #0891b2; /* cyan-600 — darker for light bg readability */
-
-  --border-base:   rgba(15, 23, 42, 0.10);
-  --border-accent: rgba(8, 145, 178, 0.25);
-
-  --glass-bg:      rgba(255, 255, 255, 0.88);
-  --navbar-bg:     rgba(240, 244, 248, 0.94);
-  --navbar-border: rgba(8, 145, 178, 0.18);
-
-  --scrollbar-track:  #e4eaf2;
-  --scrollbar-thumb:  rgba(8, 145, 178, 0.35);
-  --selection-bg:     rgba(8, 145, 178, 0.18);
-  --selection-text:   #0891b2;
-}
-
-/* Dark mode — deep navy, premium automotive feel */
-html.dark {
   --bg-base:       #07070f;
   --bg-subtle:     #0a0a18;
   --bg-muted:      #0d0d1a;
@@ -43,7 +15,7 @@ html.dark {
   --text-primary:  #f0f4f8;
   --text-secondary:#cbd5e1;
   --text-muted:    #64748b;
-  --text-accent:   #22d3ee; /* cyan-400 for dark bg */
+  --text-accent:   #22d3ee;
 
   --border-base:   rgba(255, 255, 255, 0.07);
   --border-accent: rgba(0, 245, 255, 0.20);
@@ -123,7 +95,6 @@ body {
   color: var(--text-primary);
   font-family: var(--font-body);
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ── Scrollbar ─────────────────────────────────────────────────────────────── */
@@ -143,30 +114,14 @@ body {
   background-clip: text;
 }
 
-/* Light mode: softer gradient that reads on white bg */
-html:not(.dark) .gradient-text {
-  background: linear-gradient(135deg, #0891b2 0%, #7c3aed 50%, #ea580c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .neon-text {
   color: var(--text-accent);
   text-shadow: 0 0 10px rgba(0, 245, 255, 0.5), 0 0 20px rgba(0, 245, 255, 0.25);
 }
 
-html:not(.dark) .neon-text {
-  text-shadow: none;
-}
-
 .neon-border {
   border: 1px solid var(--border-accent);
   box-shadow: 0 0 15px rgba(0, 245, 255, 0.12), inset 0 0 15px rgba(0, 245, 255, 0.06);
-}
-
-html:not(.dark) .neon-border {
-  box-shadow: 0 0 0 1px var(--border-accent);
 }
 
 .glass {
@@ -180,19 +135,9 @@ html:not(.dark) .neon-border {
   background: #07070f;
 }
 
-html:not(.dark) .animated-gradient-bg {
-  background: #dde6f0;
-}
-
 @media (min-width: 640px) {
   .animated-gradient-bg {
     background: linear-gradient(270deg, #07070f, #0d0d1a, #1a0a2e, #0a1628, #07070f);
-    background-size: 400% 400%;
-    animation: gradient 12s ease infinite;
-  }
-
-  html:not(.dark) .animated-gradient-bg {
-    background: linear-gradient(270deg, #dde6f0, #e8edf5, #ede0f5, #dde8f5, #dde6f0);
     background-size: 400% 400%;
     animation: gradient 12s ease infinite;
   }

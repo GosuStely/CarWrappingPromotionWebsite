@@ -15,16 +15,7 @@
     <title>Martin Wrap Studio — Premium Car Wrapping</title>
   </head>
   <body>
-    <!-- Apply theme class synchronously before React renders to prevent flash -->
-    <script>
-      (function () {
-        var stored = localStorage.getItem('mws-theme');
-        var theme = stored === 'light' || stored === 'dark'
-          ? stored
-          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.classList.add(theme);
-      })();
-    </script>
+    <script>document.documentElement.classList.add('dark');</script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
