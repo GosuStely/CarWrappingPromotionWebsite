@@ -59,7 +59,7 @@ export default function Home() {
       {/* Why Us */}
       <section className="py-24 bg-[#0a0a18] relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-3xl" />
+          <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-3xl hidden sm:block" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">

@@ -17,7 +17,7 @@ export default function Footer() {
       className="relative overflow-hidden border-t"
       style={{ backgroundColor: 'var(--bg-subtle)', borderColor: 'var(--border-accent)' }}
     >
-      <div className="dark:block hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="dark:block hidden sm:dark:block absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <motion.div
         variants={staggerContainer}

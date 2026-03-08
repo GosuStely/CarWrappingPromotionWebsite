@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/Button';
@@ -9,11 +9,15 @@ import { STATS } from '@/helpers/constants';
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const disableParallax = prefersReducedMotion || isMobile;
+
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
   const { t } = useTranslation();
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], disableParallax ? [0, 0] : [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, disableParallax ? 1 : 0]);
 
   const words = t('hero.words', { returnObjects: true }) as string[];
   const currentWord = words[0];
@@ -22,13 +26,13 @@ export default function Hero() {
     <section ref={containerRef} className="relative min-h-screen flex flex-col overflow-hidden">
       <div className="absolute inset-0 animated-gradient-bg" />
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-20 hidden sm:block"
         style={{
           backgroundImage: 'linear-gradient(rgba(0,245,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,255,0.15) 1px, transparent 1px)',
           backgroundSize: '60px 60px',
         }}
       />
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 hidden sm:block">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl" />
         <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-3xl" />
         <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-purple-600/10 rounded-full blur-3xl" />
@@ -124,7 +128,7 @@ export default function Hero() {
         transition={{ delay: 1.5 }}
         className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+        <motion.div animate={disableParallax ? {} : { y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
           <ChevronDown className="w-5 h-5 text-slate-500" />
         </motion.div>
       </motion.div>
