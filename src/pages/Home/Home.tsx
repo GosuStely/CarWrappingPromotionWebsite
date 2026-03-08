@@ -14,6 +14,8 @@ import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { staggerContainer, staggerItem, VIEWPORT_CONFIG } from '@/helpers/animations';
 import ImageCarousel from '@/widgets/ImageCarousel/ImageCarousel';
+import beforeImg from '@/assets/643792834_1461665968846549_3424580119758697255_n.jpg';
+import afterImg from '@/assets/645628049_1488770759525735_4056995413333055352_n.jpg';
 
 const GalleryGrid = lazy(() => import('@/widgets/GalleryGrid/GalleryGrid'));
 const BeforeAfterSlider = lazy(() => import('@/widgets/BeforeAfter/BeforeAfterSlider'));
@@ -226,8 +228,8 @@ export default function Home() {
             <ScrollReveal>
               <Suspense fallback={<div className="aspect-video rounded-2xl bg-[#0d0d1a] animate-pulse" />}>
                 <BeforeAfterSlider
-                  beforeSrc="src\assets\643792834_1461665968846549_3424580119758697255_n.jpg"
-                  afterSrc="src\assets\645628049_1488770759525735_4056995413333055352_n.jpg"
+                  beforeSrc={beforeImg}
+                  afterSrc={afterImg}
                   beforeLabel={t('home.beforeAfter.beforeLabel')}
                   afterLabel={t('home.beforeAfter.afterLabel')}
                   flipAfter={false}
